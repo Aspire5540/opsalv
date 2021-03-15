@@ -1,0 +1,124 @@
+<!-- <mat-card>
+    <mat-card-header>
+      <mat-card-title>รายงานผลการคำนวณค่าโหลดในหม้อแปลง และแรงดันในระบบแรงต่ำ
+        </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+  
+        <div class="col-md-6">
+          <mat-form-field>
+            <mat-label>กฟฟ. </mat-label>
+            <mat-select (selectionChange)="selectPea($event)">
+              <mat-option *ngFor="let pea of peaname2" [value]="[pea.peaEng,pea.peaCode,pea.peaName]">
+                {{pea.peaCode +" "+pea.peaName}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+  
+        </div>
+      
+        <mat-button-toggle-group style="border-radius: 20px;height: 80%;" value="1">
+          <mat-button-toggle (change)="onValChange($event.value)" value="1">โหลดเกิน 80%</mat-button-toggle>
+          <mat-button-toggle (change)="onValChange($event.value)" value="2">แรงดันต่ำกว่า 200 โวลต์</mat-button-toggle>
+          <mat-button-toggle (change)="onValChange($event.value)" value="3">%Unbalance เกิน 20%</mat-button-toggle>
+        </mat-button-toggle-group>
+  
+      </div>
+      
+  
+
+      <div class="row">
+        <div class="col-md-4 col-sm-12">
+         
+    
+            <canvas class="align-middle mt-4 ml-3" style="width: 100%;" id='myDonut'></canvas>
+            
+                    <div *ngIf="option=='1'">
+                    <h3 class="mt-4 ml-1 text-center">จำนวนหม้อแปลงที่โหลดเกิน 80% <br> จำนวน {{totalTr | number}} เครื่อง</h3>
+                  </div>
+                  <div *ngIf="option=='2'">
+                    <h3 class="mt-4 ml-1 text-center">จำนวนหม้อแปลงที่มีมิเตอร์แรงดันต่ำกว่า 200 โวลต์ <br> จำนวน {{totalTr | number}} เครื่อง</h3>
+                  </div>   
+                  <div *ngIf="option=='3'">
+                    <h3 class="mt-4 ml-1 text-center">จำนวนหม้อแปลงที่มี %Unbalance เกิน 20% <br> จำนวน {{totalTr | number}} เครื่อง</h3>
+                  </div>         
+
+      </div>
+      <div class="col-md-8 col-sm-12" style="width: 100%;" >
+         
+    
+        
+        <canvas id='myBar'></canvas>
+              
+
+      </div>     
+      </div>
+   
+    </mat-card-content>
+  </mat-card>
+
+
+ 
+      -->
+
+      <mat-card>
+        <mat-card-header>
+
+        </mat-card-header>
+        <mat-card-content>  
+      <div class="col-12 grid-margin">
+        <div class="card">
+          <div class="card-body">     
+            <h1 class="card-title">1. Upload File สถิติไฟดับ จากรายงาน 50</h1>        
+            <form class="form-sample" #f="ngForm">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="input-lg" for="file">เลือกไฟล์ </label>
+                        <input type="file"
+                               id="file"
+                               name="filename"
+                               ngModel required>
+                        <!-- <label class="input-lg"> {{uploadDocResponse}} </label>                   -->
+                    </div>
+
+    
+                </div>
+              </div>
+                <div class="col-md-3">
+                  <button type="submit" [disabled]="!f.valid" class="btn btn-success mr-2">Submit</button>
+                </div>
+            
+             </form>
+          </div>
+        </div>
+      </div>
+    
+      <div class="col-12 grid-margin">
+        <div class="card">
+          <div class="card-body">     
+            <h1 class="card-title">2. Upload File ผลการ patrol จาก APSA </h1>        
+            <form class="form-sample" #pm="ngForm">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group">
+                        <label class="input-lg" for="file">เลือกไฟล์ PM</label>
+                        <input type="file"
+                               id="file"
+                               name="filename"
+                               ngModel required>
+                        <!-- <label class="input-lg"> {{uploadDocResponse4}} </label>                   -->
+                    </div>
+                </div>
+              </div>
+                <div class="col-md-3">
+                  <button type="submit" [disabled]="!pm.valid" class="btn btn-success mr-2">Submit</button>
+                </div>
+            
+             </form>
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+    </mat-card>

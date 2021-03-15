@@ -1,0 +1,11 @@
+.example-container {
+  height: 90%;
+  width: 100%;
+  max-width: 100%;
+  overflow: auto;
+}
+
+table {
+  width: 970px;
+}
+
