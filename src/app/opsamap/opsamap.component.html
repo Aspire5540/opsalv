@@ -31,10 +31,19 @@
                         </mat-select>
                     </mat-form-field>
                 </div> -->
+                <div class="col-md-3">
                 <mat-form-field>
                     <mat-label>ค้นหาหม้อแปลง</mat-label>
                     <input matInput (keyup)="applyFilter($event)" placeholder="หมายเลขหม้อแปลง" #input>
                 </mat-form-field>
+                </div>
+                <div class="col-md-5">
+                    Dowload
+                    <button (click)="exportAsXLSX()"><i class="fa fa-file-excel-o"
+                        style="font-size:20px;color:blue"></i><span class="material-icons">
+                            download
+                            </span></button>
+                  </div>
             </div>
             <div class="row">
                 <table mat-table matSort #sort="matSort" [dataSource]="dataSource" class="mat-elevation-z8" matSort>
