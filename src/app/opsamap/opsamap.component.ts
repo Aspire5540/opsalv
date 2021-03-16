@@ -216,11 +216,11 @@ export class OpsamapComponent implements OnInit {
       //console.log(resptr);
       (resptr as any).forEach((element) => {
         if (Number(element.cntAPSA) > 0) {
-          this.tr100.push(element.PEA_TR);
-          this.geotr100.push([element.x, element.y]);
-        } else{
           this.tr40.push(element.PEA_TR);
           this.geotr40.push([element.x, element.y]);
+        } else{
+          this.tr100.push(element.PEA_TR);
+          this.geotr100.push([element.x, element.y]);
         }
 
       });
@@ -332,14 +332,15 @@ export class OpsamapComponent implements OnInit {
         mptr40.points = this.geotr40;
         var graphicmptr40 = new Graphic(mptr40, markertr40);
 
-        console.log(graphicmptr40)
-        console.log(graphicmptr80)
-        console.log(graphicmptr100)
+        console.log(graphicmptr40);
+        //console.log(graphicmptr80)
+        console.log(graphicmptr100);
 
-        this.map.centerAndZoom([100.323, 16.872], 3)
-        this.map.graphics.add(graphicmptr40)
-        this.map.graphics.add(graphicmptr80)
-        this.map.graphics.add(graphicmptr100)
+        this.map.centerAndZoom([100.323, 17.150], 3);
+        this.map.graphics.add(graphicmptr100);
+        this.map.graphics.add(graphicmptr40);
+        //this.map.graphics.add(graphicmptr80);
+       
         var mi = new MapImage({
           'extent': { 'xmin': -8864908, 'ymin': 3885443, 'xmax': -8762763, 'ymax': 3976997, 'spatialReference': { 'wkid': 3857 } },
           'href': './asset/kaws.JPG'
