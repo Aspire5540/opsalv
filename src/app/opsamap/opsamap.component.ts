@@ -17,6 +17,8 @@ const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.
 const EXCEL_EXTENSION = '.xlsx';
 export interface trdata {
   PEA_TR: string;
+  aoj:string;
+  PEANAME:string;
   LOCATION: string;
   RATEKVA: number;
   PLoadTOT: number;
@@ -81,6 +83,8 @@ export class OpsamapComponent implements OnInit {
   dataSource = new MatTableDataSource<trdata>();
   public dataSource2 = new MatTableDataSource<meterdata2>();
   displayedColumns: string[] = [
+    'aoj',
+    'PEANAME',
     'PEA_TR',
     'kva',
     'LOCATION',

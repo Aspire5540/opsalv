@@ -49,6 +49,14 @@
                 <table mat-table matSort #sort="matSort" [dataSource]="dataSource" class="mat-elevation-z8" matSort>
 
                     <!-- Position Column -->
+                    <ng-container matColumnDef="aoj" sticky>
+                        <th mat-header-cell *matHeaderCellDef> AOJ </th>
+                        <td mat-cell *matCellDef="let element"> {{element.aoj}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PEANAME" sticky>
+                        <th mat-header-cell *matHeaderCellDef> กฟฟ. </th>
+                        <td mat-cell *matCellDef="let element"> {{element.PEANAME}} </td>
+                    </ng-container>
                     <ng-container matColumnDef="PEA_TR" sticky>
                         <th mat-header-cell *matHeaderCellDef> PEA หม้อแปลง </th>
                         <td mat-cell *matCellDef="let element"> {{element.PEA_TR}} </td>
