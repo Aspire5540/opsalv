@@ -130,7 +130,7 @@ export class OpsamapComponent implements OnInit {
     alert(data.data);
     }*/
    
-    this.http.get('http://172.30.212.148/opsaservice/serchmeter.php?PEA_Meter=' + this.registerForm.value.PEAMeter)
+    this.http.get('http://172.30.212.189/opsaservice/serchmeter.php?PEA_Meter=' + this.registerForm.value.PEAMeter)
       //this.configService.getTr('TR.php?condition='+this.condition+'&peaCode0='+'B00000')
       .subscribe(res => {
 
@@ -189,7 +189,7 @@ export class OpsamapComponent implements OnInit {
     //this.createMap();
   }
   getpeaName() {
-    var PeaNameURL = 'http://172.30.212.148/apsalv/PEANAME.php';
+    var PeaNameURL = 'http://172.30.212.189/apsa/PEANAME.php';
     this.http.get(PeaNameURL).subscribe((data => {
       if (data['status'] == 1) {
         data['data'].forEach(element => {
@@ -206,7 +206,7 @@ export class OpsamapComponent implements OnInit {
   getXY() {
     //this.createMap();
 
-    var TraceURL = 'http://172.30.212.148/apsalv/TROPSA.php?peaCode=' + this.peaCode;
+    var TraceURL = 'http://172.30.212.189/apsa/TROPSA.php?peaCode=' + this.peaCode;
     //var peatr = [];
     this.http.get(TraceURL).subscribe((resptr) => {
       this.tr100 = [];
@@ -444,7 +444,7 @@ export class OpsamapComponent implements OnInit {
     );
   }
   findtr(peaTR) {
-    var TraceURL = 'http://172.30.212.148/opsaservice/findtr.php?FACILITYID=' + peaTR;
+    var TraceURL = 'http://172.30.212.189/opsaservice/findtr.php?FACILITYID=' + peaTR;
     this.http.get<trdata[]>(TraceURL).subscribe((resptr) => {
       this.dataSource.data = resptr as trdata[];
       this.dataSource.paginator = this.paginator;
@@ -452,7 +452,7 @@ export class OpsamapComponent implements OnInit {
     });
   }
   createTable() {
-    var TraceURL = 'http://172.30.212.148/apsalv/TROPSA.php?peaCode=' + this.peaCode;
+    var TraceURL = 'http://172.30.212.189/apsa/TROPSA.php?peaCode=' + this.peaCode;
     this.http.get<trdata[]>(TraceURL).subscribe((resptr) => {
       this.dataSource.data = resptr as trdata[];
       this.dataSource.paginator = this.paginator;
@@ -757,7 +757,7 @@ export class OpsamapComponent implements OnInit {
   }
   callseetr(peaTr) {
     this.meter = [];
-    var MTURL = "http://172.30.212.148/opsaservice/MTOPSA.php?peaTr=" + peaTr;
+    var MTURL = "http://172.30.212.189/opsaservice/MTOPSA.php?peaTr=" + peaTr;
     this.http.get(MTURL).subscribe(
       (response) => {
         response['data'].forEach(element => {
